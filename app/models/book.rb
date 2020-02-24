@@ -13,14 +13,15 @@ class Book < ApplicationRecord
 
   def self.search(search,condition)
     if search
-      if condition == 1
+      if condition == "1"
         Book.where(['title LIKE ?', "#{search}"])
-      elsif condition == 2
+      elsif condition == "2"
         Book.where(['title LIKE ?', "#{search}%"])
-      elsif condition == 3
+      elsif condition == "3"
         Book.where(['title LIKE ?', "%#{search}"])
-      elsif condition == 4
+      elsif condition == "4"
         Book.where(['title LIKE ?', "%#{search}%"])
+      end
     else
       Book.all
     end
